@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-fc47e426","path":"/threejs/%E5%87%A0%E4%BD%95%E4%BD%93/","title":"几何体","lang":"zh-CN","frontmatter":{"title":"几何体","description":""},"headers":[],"git":{},"readingTime":{"minutes":0.01,"words":2},"filePathRelative":null,"excerpt":"","autoDesc":true}');export{e as data};

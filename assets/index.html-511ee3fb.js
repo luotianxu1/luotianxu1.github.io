@@ -1,0 +1,1 @@
+import{aP as t,Q as e,S as s,U as a}from"./framework-050a1604.js";const c={},r=a("img",{src:"https://ghchart.rshah.org/luotianxu1",alt:"2016rshah's Github chart",style:{width:"100%"}},null,-1),n=[r];function o(h,_){return e(),s("div",null,n)}const i=t(c,[["render",o],["__file","index.html.vue"]]);export{i as default};
