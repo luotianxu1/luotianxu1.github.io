@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-556ce478","path":"/threejs/%E7%81%AF%E5%85%89/","title":"灯光","lang":"zh-CN","frontmatter":{"title":"灯光","description":""},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null,"excerpt":"","autoDesc":true}');export{e as data};

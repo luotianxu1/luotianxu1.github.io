@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-519911ae","path":"/threejs/%E6%8E%A7%E5%88%B6%E5%99%A8/","title":"控制器","lang":"zh-CN","frontmatter":{"title":"控制器","description":""},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null,"excerpt":"","autoDesc":true}');export{e as data};
