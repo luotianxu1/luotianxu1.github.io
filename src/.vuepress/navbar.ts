@@ -1,52 +1,45 @@
-import { navbar } from "vuepress-theme-hope";
+import { navbar } from 'vuepress-theme-hope'
 
 export default navbar([
-  "/",
-  "/demo/",
-  {
-    text: "博文",
-    icon: "pen-to-square",
-    prefix: "/posts/",
-    children: [
-      {
-        text: "苹果",
-        icon: "pen-to-square",
-        prefix: "apple/",
-        children: [
-          { text: "苹果1", icon: "pen-to-square", link: "1" },
-          { text: "苹果2", icon: "pen-to-square", link: "2" },
-          "3",
-          "4",
-        ],
-      },
-      {
-        text: "香蕉",
-        icon: "pen-to-square",
-        prefix: "banana/",
-        children: [
-          {
-            text: "香蕉 1",
-            icon: "pen-to-square",
-            link: "1",
-          },
-          {
-            text: "香蕉 2",
-            icon: "pen-to-square",
-            link: "2",
-          },
-          "3",
-          "4",
-        ],
-      },
-      { text: "樱桃", icon: "pen-to-square", link: "cherry" },
-      { text: "火龙果", icon: "pen-to-square", link: "dragonfruit" },
-      "tomato",
-      "strawberry",
-    ],
-  },
-  {
-    text: "V2 文档",
-    icon: "book",
-    link: "https://theme-hope.vuejs.press/zh/",
-  },
-]);
+    {
+        text: '主页',
+        icon: 'zhuye',
+        prefix: '/',
+        link: '/',
+    },
+    {
+        text: '基础',
+        icon: 'zaixianxuexi',
+        prefix: '/study/',
+        link: '/study/',
+    },
+    {
+        text: '面试',
+        icon: 'mianshi',
+        prefix: '/interview/',
+        link: '/interview/',
+    },
+    {
+        text: 'threejs',
+        icon: 'threejs',
+        prefix: '/threejs/',
+        link: '/threejs/',
+    },
+    {
+        text: '项目',
+        icon: 'xiangmu',
+        prefix: '/project/',
+        link: '/project/',
+    },
+    {
+        text: '其他',
+        icon: 'qita',
+        prefix: '/other/',
+        link: '/other/',
+    },
+    {
+        text: 'Github主页',
+        icon: 'github',
+        link: 'https://github.com/luotianxu1/',
+    },
+])

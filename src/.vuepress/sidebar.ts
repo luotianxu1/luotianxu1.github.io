@@ -1,26 +1,39 @@
-import { sidebar } from "vuepress-theme-hope";
+import { sidebar } from 'vuepress-theme-hope'
 
 export default sidebar({
-  "/": [
-    "",
-    {
-      text: "如何使用",
-      icon: "laptop-code",
-      prefix: "demo/",
-      link: "demo/",
-      children: "structure",
-    },
-    {
-      text: "文章",
-      icon: "book",
-      prefix: "posts/",
-      children: "structure",
-    },
-    "intro",
-    {
-      text: "幻灯片",
-      icon: "person-chalkboard",
-      link: "https://plugin-md-enhance.vuejs.press/zh/guide/content/revealjs/demo.html",
-    },
-  ],
-});
+    '/study/': [
+        {
+            text: '基础',
+            icon: 'zaixianxuexi',
+            children: 'structure',
+        },
+    ],
+    '/interview/': [
+        {
+            text: '面试',
+            icon: 'mianshi',
+            children: 'structure',
+        },
+    ],
+    '/threejs/': [
+        {
+            text: 'threejs',
+            icon: 'threejs',
+            children: 'structure',
+        },
+    ],
+    '/project/': [
+        {
+            text: '项目',
+            icon: 'xiangmu',
+            children: 'structure',
+        },
+    ],
+    '/other/': [
+        {
+            text: '其他',
+            icon: 'qita',
+            children: 'structure',
+        },
+    ],
+})
