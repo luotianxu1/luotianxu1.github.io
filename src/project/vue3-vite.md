@@ -9,9 +9,9 @@ tag:
     - vue3
 ---
 
-## 通过脚手架初始化项目
+## 一、通过脚手架初始化项目
 
-### 下载项目
+### 1.下载项目
 
 ```npm
 npm create vue@3
@@ -19,13 +19,13 @@ npm create vue@3
 
 ![ ](/img/project/vue.jpg)
 
-### 安装依赖
+### 2.安装依赖
 
 ```npm
 pnpm install
 ```
 
-### 运行项目
+### 3.运行项目
 
 ```npm
 npm run dev
@@ -33,54 +33,48 @@ npm run dev
 
 ![ ](/img/project/vue1.jpg)
 
-## 安装 scss
+## 二、初始化git
 
-```npm
-pnpm install sass -D
-```
-
-## git
-
-### 初始化 git 本地仓库
+### 1.初始化 git 本地仓库
 
 ```git
 git init
 ```
 
-### 添加所有文件
+### 2.添加所有文件
 
 ```git
 git add .
 ```
 
-### 提交文件
+### 3.提交文件
 
 ```git
 git commit -m '你的提交信息'
 ```
 
-### 链接到 github
+### 4.链接到 github
 
 ```git
 git remote add origin https://github.com/xxxxxxxx/vue3-base.git
 ```
 
-### 推送到 github
+### 5.推送到 github
 
 ```git
 git push --set-upstream origin master
 ```
 
-## 设置 commit 规范
+## 三、设置 commit 规范
 
-### 安装依赖
+### 1.安装依赖
 
 ```npm
 npm install -g commitizen
 pnpm add cz-customizable -D
 ```
 
-### 修改 package.json
+### 2.修改 package.json
 
 在`package.json`中进行新增
 
@@ -92,7 +86,11 @@ pnpm add cz-customizable -D
 }
 ```
 
-### 创建配置文件
+删除`"type": "module"`
+
+![ ](/img/project/vue6.jpg)
+
+### 3.创建配置文件
 
 在根目录下新建`.cz-config.js`文件并写入配置 之后就可以用`git cz`来代替`git commit`
 
@@ -130,84 +128,15 @@ module.exports = {
 }
 ```
 
+### 4.测试
+
 现在就可以用`git cz`来代替`git commit`
 
 ![ ](/img/project/vue2.jpg)
 
-## 强制 commit 规范
+## 四、代码格式化
 
-### 安装依赖
-
-```npm
- pnpm add @commitlint/config-conventional @commitlint/cli husky -D
-```
-
-### 初始化
-
-```npm
-npx husky install
-```
-
-### 创建配置文件
-
-在根目录下新建`commitlint.config.js`文件并写入配置
-
-```js
-module.exports = {
-    // 继承的规则
-    extends: ['@commitlint/config-conventional'],
-    // 定义规则类型
-    rules: {
-        // type 类型定义，表示 git 提交的 type 必须在以下类型范围内
-        'type-enum': [
-            2,
-            'always',
-            [
-                'feat', // 新功能 feature
-                'fix', // 修复 bug
-                'docs', // 文档注释
-                'style', // 代码格式(不影响代码运行的变动)
-                'refactor', // 重构(既不增加新功能，也不是修复bug)
-                'perf', // 性能优化
-                'test', // 增加测试
-                'chore', // 构建过程或辅助工具的变动
-                'revert', // 回退
-                'build', // 打包
-            ],
-        ],
-        // subject 大小写不做校验
-        'subject-case': [0],
-    },
-}
-```
-
-### 在 package.json 中新增指令
-
-```test
-"prepare": "husky install"
-```
-
-### 执行指令
-
-```npm
-npm run prepare
-```
-
-### 添加 commit-msg 钩子,执行信息校验
-
-```npm
-npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
-```
-
-### 测试
-
-![ 不符合规则 ](/img/project/vue4.jpg)
-
-![ 符合规则 ](/img/project/vue5.jpg)
-
-## eslint
-
-### 创建配置文件
+### 1.eslint
 
 修改.eslintrc.cjs文件
 
@@ -256,9 +185,7 @@ dist
 node_modules
 ```
 
-## prettie
-
-### 创建配置文件
+### 2.prettie
 
 修改 .prettierrc.json 为 .prettierrc.js
 
@@ -319,15 +246,13 @@ module.exports = {
 
 ```
 
-## stylelint
+### 3.stylelint
 
-### 安装依赖
+安装依赖
 
 ```npm
 pnpm install stylelint@13.13.1 stylelint-config-prettier@9.0.3 stylelint-config-standard@22.0.0 stylelint-order@4.1.0 stylelint-scss@3.20.1 -D
 ```
-
-### 创建配置文件
 
 新建.stylelintrc.cjs文件
 
@@ -551,15 +476,17 @@ public/*
 node_modules/*
 ```
 
-### 修改package.json
+### 4.修改package.json
 
 新增命令
 
 ```text
+"lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+"lint:prettier": "prettier --write \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
 "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
 ```
 
-## 统一编辑器配置
+### 5.统一编辑器配置
 
 根目录下新增`.editorconfig`文件
 
@@ -581,37 +508,94 @@ max_line_length = off # 关闭最大行长度限制
 trim_trailing_whitespace = false # 关闭末尾空格修剪
 ```
 
-## 强制代码格式化
+## 五、强制代码格式化
 
-### 创建配置文件
+### 1.安装依赖
 
 ```npm
-npx husky add .husky/pre-commit
+pnpm add  husky lint-staged --save-dev
 ```
 
-### 修改配置文件
+### 2.初始化
 
-将`.husky/pre-commit`文件钟的 undefind 改为`npx lint-staged`
-
-### 修改 package.json
-
-```json
- "lint-staged": {
-  "src/**/*.{ts,js,vue}": [
-   "eslint --fix",
-   "prettier --write",
-   "stylelint --fix",
-   "git add"
-  ],
-  "*.{scss,less,styl,html}": [
-   "stylelint --fix",
-   "prettier --write",
-   "git add"
-  ]
- }
+```npm
+pnpm exec husky init
 ```
 
-## mac 获取权限
+### 3.修改配置文件
+
+将`.husky/pre-commit`文件钟的 `pnpm test` 改为`npx lint-staged`
+
+新建`lint-staged.config.cjs`
+
+```js
+module.exports = {
+  "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
+  "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": ["prettier --write--parser json"],
+  "package.json": ["prettier --write"],
+  "*.vue": ["eslint --fix", "prettier --write", "stylelint --fix"],
+  "*.{scss,less,styl,html}": ["stylelint --fix", "prettier --write"],
+  "*.md": ["prettier --write"]
+};
+
+```
+
+## 六、强制 commit 规范
+
+### 1.安装依赖
+
+```npm
+pnpm add @commitlint/config-conventional @commitlint/cli -D
+```
+
+### 2.创建配置文件
+
+在根目录下新建`commitlint.config.js`文件并写入配置
+
+```js
+module.exports = {
+    // 继承的规则
+    extends: ['@commitlint/config-conventional'],
+    // 定义规则类型
+    rules: {
+        // type 类型定义，表示 git 提交的 type 必须在以下类型范围内
+        'type-enum': [
+            2,
+            'always',
+            [
+                'feat', // 新功能 feature
+                'fix', // 修复 bug
+                'docs', // 文档注释
+                'style', // 代码格式(不影响代码运行的变动)
+                'refactor', // 重构(既不增加新功能，也不是修复bug)
+                'perf', // 性能优化
+                'test', // 增加测试
+                'chore', // 构建过程或辅助工具的变动
+                'revert', // 回退
+                'build', // 打包
+            ],
+        ],
+        // subject 大小写不做校验
+        'subject-case': [0],
+    },
+}
+```
+
+### 3.添加 commit-msg 钩子,执行信息校验
+
+复制`.husky`文件下`pre-commit`文件，并重命名为`commit-msg`。修改内容为：
+
+```js
+npx --no -- commitlint --edit ${1}
+```
+
+### 4.测试
+
+![ 不符合规则 ](/img/project/vue5.jpg)
+
+![ 符合规则 ](/img/project/vue4.jpg)
+
+### 5.mac 获取权限
 
 对于 liux 或者 macos 系统中，可能会出现 因为没有将钩子 '.husky/pre-commit' 设置为可执行 钩子被忽略的错误。
 
@@ -625,16 +609,19 @@ chmod +x .husky/pre-commit
 chmod +x .husky/commit-msg
 ```
 
-## 按需引入 element-plus
+## 七、安装第三方库
 
-### 安装
+### 1.scss
+
+```npm
+pnpm install sass -D
+```
+
+### 2.element-plus
 
 ```npm
 pnpm i element-plus
-pnpm install unplugin-vue-components unplugin-auto-import vite-plugin-style-import consola -D
 ```
-
-### ts 配置
 
 ```json
 // tsconfig.json
@@ -646,7 +633,17 @@ pnpm install unplugin-vue-components unplugin-auto-import vite-plugin-style-impo
 }
 ```
 
-### 按需引入
+### 3.css初始化
+
+```npm
+pnpm add normalize.css -D
+```
+
+### 3.自动引入依赖
+
+```npm
+pnpm install unplugin-vue-components unplugin-auto-import vite-plugin-style-import consola -D
+```
 
 ```ts
 // vite.config.ts
@@ -689,63 +686,43 @@ export default defineConfig({
 })
 ```
 
-## ts 类型检查
-
-### 创建文件
-
-在 src 目录下创建`types`文件
-
-### 修改自动引入
-
-```ts
-export default defineConfig({
-    // ...
-    plugins: [
-        // ...
-        AutoImport({
-            resolvers: [ElementPlusResolver()],
-            imports: ['vue', 'vue-router', 'pinia'],
-            dts: 'src/types/auto-imports.d.ts',
-            eslintrc: {
-                enabled: false, // Default `false`
-                filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-                globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
-            },
-        }),
-        Components({
-            resolvers: [ElementPlusResolver()],
-            dts: 'src/types/components.d.ts',
-        }),
-    ],
-})
-```
-
 AutoImport 中 enabled 配置有新引入的依赖改为true，其他时间为false
 
-### 修改 tsconfig.json
+修改`.eslintrc.cjs`
+
+```js
+ extends: [
+  "plugin:vue/vue3-essential",
+  "eslint:recommended",
+  "@vue/eslint-config-typescript",
+  "@vue/eslint-config-prettier/skip-formatting",
+  "./.eslintrc-auto-import.json"
+ ],
+```
+
+## 八、修改 tsconfig.json
 
 ```json
 {
-    "extends": "@vue/tsconfig/tsconfig.web.json",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./src/*"],
-            "@assets/*": ["./src/assets/*"]
-        },
-        "types": ["element-plus/global"],
-        "typeRoots": ["./node_modules/@types/", "./src/types/"]
-    },
-    "references": [
-        {
-            "path": "./tsconfig.node.json"
-        }
-    ],
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-    "exclude": ["node_modules"]
+ "files": [],
+ "references": [
+  {
+   "path": "./tsconfig.node.json"
+  },
+  {
+   "path": "./tsconfig.app.json"
+  }
+ ],
+ "compilerOptions": {
+  "paths": {
+   "@/*": ["./src/*"],
+   "@assets/*": ["./src/assets/*"]
+  }
+ }
 }
+
 ```
 
-## github 地址
+## 九、github 地址
 
 <https://github.com/luotianxu1/vue3-base>
