@@ -16,12 +16,17 @@ projects:
   - icon: project
     name: vue3基础框架
     desc: vue3基础框架
-    link: https://github.com/luotianxu1/vue3-base
+    link: https://github.com/luotianxu1/base-vue3
 
   - icon: project
     name: vue3管理系统模板
     desc: vue3管理系统模板
     link: https://luotianxu-vue-ts-vite-admin.netlify.app
+
+  - icon: project
+    name: vue2基础框架
+    desc: vue2基础框架
+    link: https://github.com/luotianxu1/base-vue2
 
 ---
 
